@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "BepInEx",
+  "classifications": [ "BepInEx", "BepInEx 5" , "Plugin" ],
+  "identity": "BepInEx5.Plugin",
+  "name": "BepInEx 5 Plugin",
+  "shortName": "bepinex5plugin",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "preferNameDirectory": true,
+  "sourceName": "BepInEx5.PluginTemplate",
+  "symbols": {
+    "Plugin Name": {
+      "type": "parameter",
+      "description": "The name of the plugin",
+      "datatype": "text",
+      "defaultValue": "My first plugin",
+      "replaces": "My first plugin"
+    },
+    "Description": {
+      "type": "parameter",
+      "description": "Unique plugin GUID",
+      "datatype": "text",
+      "replaces": "{guid}",
+      "defaultValue": "com.yourname.pluginname"
+    },
+    "UnityVersion": {
+      "type": "parameter",
+      "description": "Unity version to use when developing the plugin",
+      "datatype": "text",
+      "replaces": "2019.4.40",
+      "defaultValue": "2019.4.40"
+    },
+    "Version": {
+      "type": "parameter",
+      "description": "Plugin version",
+      "datatype": "text",
+      "replaces": "{version}",
+      "defaultValue": "1.0.0"
+    },
+    "UltrakillDirectory": {
+      "type": "parameter",
+      "description": "Path to the Ultrakill directory for dependencies",
+      "datatype": "text",
+      "replaces": "{ultrakill_dir}",
+      "defaultValue": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\ULTRAKILL"
+    },
+    "IsBepinexInstalledToUltrakill": {
+      "type": "parameter",
+      "description": "Does the provided ultrakill directory have bepinex successfully installed for debugging?",
+      "datatype": "bool",
+      "replaces": "{is_bepinex_installed}",
+      "defaultValue": "false"
+    }
+  }
+}
