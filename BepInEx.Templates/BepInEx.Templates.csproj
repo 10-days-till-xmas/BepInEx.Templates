@@ -22,4 +22,8 @@
     <Compile Remove="**\*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="templates\UltrakillMod.PluginTemplate\PluginInfoProps\" />
+  </ItemGroup>
+
 </Project>

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>BepInEx5.PluginTemplate</AssemblyName>
+    <AssemblyName>UltrakillMod.PluginTemplate</AssemblyName>
     <Product>My first plugin</Product>
     <GUID>{guid}</GUID>
     <Version>{version}</Version>
@@ -31,8 +31,10 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>{ultrakill_dir}\ULTRAKILL_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="plog">
-      <HintPath>{ultrakill_dir}\ULTRAKILL_Data\Managed\plog.dll</HintPath>
-    </Reference>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="call &quot;$(ProjectDir)PluginProps\PostBuildTasks.bat&quot; &quot;$(ConfigurationName)&quot; &quot;$(ProjectDir)&quot; &quot;$(Product)&quot;" />
+  </Target>
+  
 </Project>

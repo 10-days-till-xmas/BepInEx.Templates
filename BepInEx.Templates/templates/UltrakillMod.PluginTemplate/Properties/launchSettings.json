@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ULTRAKILL": {
+      "commandName": "Executable",
+      "executablePath": "\\ULTRAKILL.exe"
+    }
+  }
+}

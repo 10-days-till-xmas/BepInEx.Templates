@@ -1,16 +1,16 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "BepInEx",
-  "classifications": [ "BepInEx", "BepInEx 5" , "Plugin" ],
-  "identity": "BepInEx5.Plugin",
-  "name": "BepInEx 5 Plugin",
-  "shortName": "bepinex5plugin",
+  "author": "BepInEx, 10_days_till_xmas",
+  "classifications": [ "BepInEx", "BepInEx 5", "Plugin", "Ultrakill" ],
+  "identity": "UltrakillMod.PluginTemplate",
+  "name": "BepInEx 5 Ultrakill Plugin",
+  "shortName": "ultrakillplugin",
   "tags": {
     "language": "C#",
     "type": "project"
   },
   "preferNameDirectory": true,
-  "sourceName": "BepInEx5.PluginTemplate",
+  "sourceName": "UltrakillMod.PluginTemplate",
   "symbols": {
     "Plugin Name": {
       "type": "parameter",
@@ -19,19 +19,12 @@
       "defaultValue": "My first plugin",
       "replaces": "My first plugin"
     },
-    "Description": {
+    "GUID": {
       "type": "parameter",
       "description": "Unique plugin GUID",
       "datatype": "text",
       "replaces": "{guid}",
       "defaultValue": "com.yourname.pluginname"
-    },
-    "UnityVersion": {
-      "type": "parameter",
-      "description": "Unity version to use when developing the plugin",
-      "datatype": "text",
-      "replaces": "2019.4.40",
-      "defaultValue": "2019.4.40"
     },
     "Version": {
       "type": "parameter",
@@ -42,9 +35,8 @@
     },
     "UltrakillDirectory": {
       "type": "parameter",
-      "description": "Path to the Ultrakill directory for dependencies",
+      "description": "Path to the Ultrakill directory for dependencies, and debugging (if bepinex is installed to it)",
       "datatype": "text",
-      "replaces": "{ultrakill_dir}",
       "defaultValue": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\ULTRAKILL"
     },
     "IsBepinexInstalledToUltrakill": {
@@ -53,6 +45,39 @@
       "datatype": "bool",
       "replaces": "{is_bepinex_installed}",
       "defaultValue": "false"
+    },
+    // windows regex: "^[a-zA-Z]:[/\\]+(?:[\w !@#$%^&()_+\-=[\];',.]+[/\\]+)*$"
+    "CleanUKDir": {
+      "type": "generated",
+      "generator": "regex",
+      "dataType": "string",
+      "replaces": "A different message",
+      "parameters": {
+        "source": "message",
+        "steps": [
+          {
+            "regex": "[^/\\]$", //Simple regex to add a trailing slash if it doesn't exist
+            "replacement": "$&/"
+          }
+        ]
+      }
+
+    },
+    "Dependencies": {
+      "type": "parameter",
+      "description": "List of dependencies to include in the plugin",
+      "datatype": "choice",
+      "allowMultipleValues": true,
+      "choices": [
+        {
+          "choice": "Assembly-CSharp",
+          "description": "Ultrakill class library"
+        },
+        {
+          "choice": "plog",
+          "description": "plog"
+        }
+      ]
     }
   }
 }
